@@ -1824,8 +1824,9 @@ p { margin: 0; }
   text-decoration: underline;
 }
 
-/* Cookie settings toggles */
-.cookie-banner__settings {
+/* Cookie settings toggles - hidden by default, shown only when JS removes [hidden] */
+.cookie-banner__settings { display: none; }
+.cookie-banner__settings:not([hidden]) {
   display: flex;
   flex-direction: column;
   gap: 10px;
