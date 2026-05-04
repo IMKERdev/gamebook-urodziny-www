@@ -1749,6 +1749,7 @@ p { margin: 0; }
   max-height: 90vh;
   overflow-y: auto;
 }
+.cookie-banner[hidden],
 .cookie-banner [hidden] { display: none !important; }
 .cookie-banner__title {
   font-family: var(--font-display);
