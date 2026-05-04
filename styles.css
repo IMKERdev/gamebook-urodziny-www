@@ -1740,14 +1740,16 @@ p { margin: 0; }
   position: relative;
   background: #fff;
   border: 2px solid var(--brand-500);
+  border-bottom-width: 8px;
   border-radius: 3px;
   max-width: 540px;
   width: 100%;
   padding: 32px;
-  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5), 0 4px 0 var(--brand-500);
+  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5);
   max-height: 90vh;
   overflow-y: auto;
 }
+.cookie-banner [hidden] { display: none !important; }
 .cookie-banner__title {
   font-family: var(--font-display);
   font-size: 28px;
