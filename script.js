@@ -130,7 +130,6 @@ function setupCookieBanner() {
   }
 
   document.getElementById('cookieAccept').addEventListener('click', () => close(true, true));
-  document.getElementById('cookieReject').addEventListener('click', () => close(false, false));
   document.getElementById('cookieCustomize').addEventListener('click', () => {
     defaultView.hidden = true;
     settingsView.hidden = false;
