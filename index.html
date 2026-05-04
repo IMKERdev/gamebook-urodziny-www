@@ -48,15 +48,17 @@
 
   <!-- ========= NAV ========= -->
   <header class="nav">
-    <a href="/" class="nav__logo" aria-label="Gamebook - strona główna">
-      <img src="assets/logo.png" alt="Gamebook" width="180" height="38">
-    </a>
-    <nav class="nav__links" aria-label="Sekcje">
-      <a href="#stage-1" class="nav__link"><span class="nav__link-num">01</span><span class="nav__link-name">FAN RETRO</span></a>
-      <a href="#stage-2" class="nav__link"><span class="nav__link-num">02</span><span class="nav__link-name">MIECZE, ZOMBIE I&nbsp;PIKSELE</span></a>
-      <a href="#stage-3" class="nav__link"><span class="nav__link-num">03</span><span class="nav__link-name">BITMAPOWY ŚWIAT</span></a>
-    </nav>
-    <a href="#stage-1" class="nav__cta">Wybierz box</a>
+    <div class="nav__inner">
+      <a href="/" class="nav__logo" aria-label="Gamebook - strona główna">
+        <img src="assets/logo.png" alt="Gamebook" width="180" height="38">
+      </a>
+      <nav class="nav__links" aria-label="Sekcje">
+        <a href="#stage-1" class="nav__link"><span class="nav__link-num">01</span><span class="nav__link-name">FAN RETRO</span></a>
+        <a href="#stage-2" class="nav__link"><span class="nav__link-num">02</span><span class="nav__link-name">MIECZE, ZOMBIE I&nbsp;PIKSELE</span></a>
+        <a href="#stage-3" class="nav__link"><span class="nav__link-num">03</span><span class="nav__link-name">BITMAPOWY ŚWIAT</span></a>
+      </nav>
+      <a href="#stage-1" class="nav__cta">Wybierz box</a>
+    </div>
   </header>
 
   </div><!-- /.sticky-header -->
@@ -642,6 +644,60 @@
         <span class="sticky-cta__text"><strong>Urodzinowy box</strong> od <strong>159,90 zł</strong> &middot; znika za <span id="stickyTimer">14d</span></span>
       </div>
       <a href="#stage-1" class="btn btn--primary">► Wybierz box</a>
+    </div>
+  </div>
+
+  <!-- ========= COOKIES BANNER ========= -->
+  <div class="cookie-banner" id="cookieBanner" hidden>
+    <div class="cookie-banner__backdrop"></div>
+    <div class="cookie-banner__card" role="dialog" aria-labelledby="cookieTitle" aria-modal="true">
+      <h2 class="cookie-banner__title" id="cookieTitle">Pliki cookies</h2>
+      <p class="cookie-banner__text">
+        Strona <strong>urodziny.gamebook.pl</strong> używa plików cookies, aby zapewnić poprawne działanie, analizować ruch oraz dostarczać dopasowane treści marketingowe. Możesz zaakceptować wszystkie lub dostosować ustawienia.
+      </p>
+      <p class="cookie-banner__text cookie-banner__text--small">
+        Szczegóły w <a href="https://gamebook.pl/polityka-prywatnosci/" target="_blank" rel="noopener">polityce prywatności</a>.
+      </p>
+
+      <div class="cookie-banner__buttons" id="cookieDefault">
+        <button class="cookie-banner__btn cookie-banner__btn--primary" id="cookieAccept">Akceptuję wszystkie</button>
+        <button class="cookie-banner__btn cookie-banner__btn--ghost" id="cookieReject">Tylko niezbędne</button>
+        <button class="cookie-banner__btn cookie-banner__btn--text" id="cookieCustomize">Dostosuj ustawienia</button>
+      </div>
+
+      <div class="cookie-banner__settings" id="cookieSettings" hidden>
+        <div class="cookie-toggle">
+          <div class="cookie-toggle__info">
+            <span class="cookie-toggle__name">Niezbędne</span>
+            <p class="cookie-toggle__desc">Wymagane do podstawowego działania strony. Nie można ich wyłączyć.</p>
+          </div>
+          <div class="cookie-toggle__switch cookie-toggle__switch--locked is-on" aria-label="Zawsze włączone">
+            <span class="cookie-toggle__dot"></span>
+          </div>
+        </div>
+        <div class="cookie-toggle">
+          <div class="cookie-toggle__info">
+            <span class="cookie-toggle__name">Analityczne</span>
+            <p class="cookie-toggle__desc">Pomagają zrozumieć, jak odwiedzający korzystają ze strony (np. Google Analytics).</p>
+          </div>
+          <button class="cookie-toggle__switch is-on" id="toggleAnalytics" aria-pressed="true">
+            <span class="cookie-toggle__dot"></span>
+          </button>
+        </div>
+        <div class="cookie-toggle">
+          <div class="cookie-toggle__info">
+            <span class="cookie-toggle__name">Marketingowe</span>
+            <p class="cookie-toggle__desc">Pozwalają wyświetlać reklamy dopasowane do Twoich zainteresowań.</p>
+          </div>
+          <button class="cookie-toggle__switch" id="toggleMarketing" aria-pressed="false">
+            <span class="cookie-toggle__dot"></span>
+          </button>
+        </div>
+        <div class="cookie-banner__buttons">
+          <button class="cookie-banner__btn cookie-banner__btn--primary" id="cookieSave">Zapisz wybór</button>
+          <button class="cookie-banner__btn cookie-banner__btn--text" id="cookieBack">← Wróć</button>
+        </div>
+      </div>
     </div>
   </div>
 

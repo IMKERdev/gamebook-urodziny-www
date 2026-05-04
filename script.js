@@ -105,12 +105,54 @@ function shuffleCovers() {
   covers.forEach((c, i) => c.querySelector('img').setAttribute('src', srcs[i]));
 }
 
+function setupCookieBanner() {
+  const banner = document.getElementById('cookieBanner');
+  if (!banner) return;
+  if (localStorage.getItem('cookies-accepted')) return;
+
+  banner.hidden = false;
+
+  const defaultView = document.getElementById('cookieDefault');
+  const settingsView = document.getElementById('cookieSettings');
+  const toggleAnalytics = document.getElementById('toggleAnalytics');
+  const toggleMarketing = document.getElementById('toggleMarketing');
+
+  function toggleSwitch(btn) {
+    const on = btn.classList.toggle('is-on');
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+  }
+
+  function close(analytics, marketing) {
+    localStorage.setItem('cookies-accepted', '1');
+    localStorage.setItem('cookies-analytics', analytics ? '1' : '0');
+    localStorage.setItem('cookies-marketing', marketing ? '1' : '0');
+    banner.hidden = true;
+  }
+
+  document.getElementById('cookieAccept').addEventListener('click', () => close(true, true));
+  document.getElementById('cookieReject').addEventListener('click', () => close(false, false));
+  document.getElementById('cookieCustomize').addEventListener('click', () => {
+    defaultView.hidden = true;
+    settingsView.hidden = false;
+  });
+  document.getElementById('cookieBack').addEventListener('click', () => {
+    settingsView.hidden = true;
+    defaultView.hidden = false;
+  });
+  toggleAnalytics.addEventListener('click', () => toggleSwitch(toggleAnalytics));
+  toggleMarketing.addEventListener('click', () => toggleSwitch(toggleMarketing));
+  document.getElementById('cookieSave').addEventListener('click', () => {
+    close(toggleAnalytics.classList.contains('is-on'), toggleMarketing.classList.contains('is-on'));
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const deadline = getDeadline();
   tick(deadline);
   setInterval(() => tick(deadline), 1000);
   setupStickyCta();
   shuffleCovers();
+  setupCookieBanner();
 
   // Smooth scroll already handled by CSS, but offset for sticky urgency-bar
   document.querySelectorAll('a[href^="#"]').forEach(link => {
