@@ -1625,7 +1625,7 @@ p { margin: 0; }
   font-weight: 500;
 }
 .footer__imker-logo {
-  height: 30px;
+  height: 35px;
   width: auto;
   display: block;
 }
@@ -2069,7 +2069,7 @@ p { margin: 0; }
   .footer__copy { text-align: center; font-size: 13px; }
   .footer__imker { padding: 6px 16px; gap: 12px; }
   .footer__imker-label { font-size: 12.5px; }
-  .footer__imker-logo { height: 24px; }
+  .footer__imker-logo { height: 29px; }
 
   /* Sticky CTA */
   .sticky-cta { padding: 8px 12px; }
