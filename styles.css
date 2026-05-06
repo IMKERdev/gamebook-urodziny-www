@@ -1228,19 +1228,6 @@ p { margin: 0; }
   font-size: 13px;
 }
 
-/* Scarcity bar - quantity remaining */
-.stage__scarcity {
-  margin-top: 14px;
-  padding: 10px 14px;
-  background: rgba(232, 15, 31, 0.10);
-  border: 1px solid rgba(232, 15, 31, 0.3);
-  border-radius: 3px;
-  font-size: 13.5px;
-  color: rgba(255, 255, 255, 0.85);
-  text-align: center;
-}
-.stage__scarcity strong { color: var(--brand-500); font-weight: 800; }
-
 /* Expiry warning - flat panel, badge icon, no side bar */
 .stage__expiry {
   margin-top: 18px;
@@ -2030,11 +2017,10 @@ p { margin: 0; }
   .stage__price-new .zl { font-size: 18px; }
   .stage__price-save { font-size: 13px; }
 
-  /* Stage CTA + trust + scarcity + expiry */
+  /* Stage CTA + trust + expiry */
   .stage .btn--full { font-size: 14px; padding: 16px 14px; min-height: 56px; line-height: 1.2; }
   .stage .btn--full small { display: block; font-size: 0.78em; margin-top: 3px; opacity: 0.95; }
   .stage__trust { flex-direction: column; align-items: flex-start; gap: 6px; font-size: 12px; margin-top: 12px; }
-  .stage__scarcity { font-size: 12.5px; padding: 9px 12px; }
   .stage__expiry { font-size: 12.5px; padding: 12px 14px; gap: 12px; }
   .stage__expiry-icon { width: 30px; height: 30px; font-size: 15px; }
 
