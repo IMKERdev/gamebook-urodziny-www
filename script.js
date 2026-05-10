@@ -2,39 +2,36 @@
    3. URODZINY GAMEBOOK · Countdown logic
    ============================================ */
 
-// Promotion ends 14 days from first visit (per device).
-// Stored in localStorage so reloads do not reset the countdown.
-const STORAGE_KEY = 'gamebook_birthday_deadline_v1';
-const PROMO_DAYS = 14;
-
-function getDeadline() {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored) {
-    const ts = parseInt(stored, 10);
-    if (!Number.isNaN(ts) && ts > Date.now()) return ts;
-  }
-  const deadline = Date.now() + PROMO_DAYS * 24 * 60 * 60 * 1000;
-  localStorage.setItem(STORAGE_KEY, String(deadline));
-  return deadline;
-}
+// Stale daty promocji (Europe/Warsaw, CEST = UTC+2 w maju).
+// Pre-launch: do 14 maja 00:00. Active: 14 maja 00:00 - 31 maja 23:59:59. Po: expired.
+const START_MS = Date.UTC(2026, 4, 13, 22, 0, 0);
+const END_MS   = Date.UTC(2026, 4, 31, 21, 59, 59);
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
 function formatTimer(ms) {
-  if (ms <= 0) return { d: 0, h: 0, m: 0, s: 0, expired: true };
+  if (ms <= 0) return { d: 0, h: 0, m: 0, s: 0 };
   const total = Math.floor(ms / 1000);
   const d = Math.floor(total / 86400);
   const h = Math.floor((total % 86400) / 3600);
   const m = Math.floor((total % 3600) / 60);
   const s = total % 60;
-  return { d, h, m, s, expired: false };
+  return { d, h, m, s };
 }
 
-function tick(deadline) {
-  const remaining = deadline - Date.now();
-  const t = formatTimer(remaining);
+function getPhase(now) {
+  if (now < START_MS) return 'prelaunch';
+  if (now > END_MS)   return 'expired';
+  return 'active';
+}
 
-  // Hero countdown
+function tick() {
+  const now = Date.now();
+  const phase = getPhase(now);
+  const target = phase === 'prelaunch' ? START_MS : END_MS;
+  const t = formatTimer(target - now);
+
+  // Hero countdown digits
   const dni  = document.getElementById('dni');
   const godz = document.getElementById('godz');
   const min  = document.getElementById('min');
@@ -44,27 +41,61 @@ function tick(deadline) {
   if (min)  min.textContent  = pad(t.m);
   if (sek)  sek.textContent  = pad(t.s);
 
-  // Top urgency bar timer
+  // Hero countdown label
+  const hudLabel = document.getElementById('hudLabel');
+  if (hudLabel) {
+    hudLabel.textContent =
+      phase === 'expired'   ? 'PROMOCJA ZAKONCZONA' :
+      phase === 'prelaunch' ? 'STARTUJE ZA // 14 MAJA RUSZAMY'
+                            : 'TIME LEFT // BOXY ZNIKAJA ZA';
+  }
+
+  // Top urgency bar timer + pill
   const top = document.getElementById('topTimer');
   if (top) {
-    top.textContent = t.expired
+    top.textContent = phase === 'expired'
       ? 'PROMOCJA ZAKONCZONA'
       : `${pad(t.d)}d ${pad(t.h)}:${pad(t.m)}:${pad(t.s)}`;
   }
-
-  // Sticky bottom bar timer
-  const sticky = document.getElementById('stickyTimer');
-  if (sticky) {
-    sticky.textContent = t.expired
-      ? 'koniec'
-      : `${t.d}d ${pad(t.h)}h`;
+  const pillLabel = document.getElementById('urgencyPillLabel');
+  if (pillLabel) {
+    pillLabel.textContent =
+      phase === 'expired'   ? 'PROMOCJA ZAKONCZONA' :
+      phase === 'prelaunch' ? 'STARTUJE 14 MAJA'
+                            : 'PROMO ACTIVE';
+  }
+  const urgencyText = document.getElementById('urgencyText');
+  if (urgencyText) {
+    urgencyText.innerHTML = phase === 'prelaunch'
+      ? '<strong>Do -48% z gratisami</strong> &middot; <strong>14-31 maja</strong> &middot; potem boxy <strong>znikają z oferty</strong>'
+      : '<strong>Do -48% z gratisami</strong> &middot; tylko <strong>do 31 maja</strong> &middot; potem boxy <strong>znikają z oferty</strong>';
   }
 
-  // Final CTA days remaining
-  const finalDays = document.getElementById('finalDays');
-  if (finalDays) finalDays.textContent = String(t.d);
+  // Sticky bottom bar - timer + verb
+  const sticky = document.getElementById('stickyTimer');
+  if (sticky) {
+    sticky.textContent = phase === 'expired' ? 'koniec' : `${t.d}d ${pad(t.h)}h`;
+  }
+  const stickyVerb = document.getElementById('stickyVerb');
+  if (stickyVerb) {
+    stickyVerb.textContent =
+      phase === 'expired'   ? '' :
+      phase === 'prelaunch' ? 'startuje za'
+                            : 'znika za';
+  }
 
-  if (t.expired) {
+  // Final CTA title
+  const finalTitle = document.getElementById('finalCtaTitle');
+  if (finalTitle) {
+    finalTitle.innerHTML =
+      phase === 'expired'
+        ? 'Promocja zakonczona.<br>Boxy znikneły z oferty.'
+        : phase === 'prelaunch'
+          ? `Startuje za <span id="finalDays">${t.d}</span> dni.<br>Trwa od 14 do 31 maja.`
+          : `Masz <span id="finalDays">${t.d}</span> dni.<br>Potem boxy znikają z oferty.`;
+  }
+
+  if (phase === 'expired') {
     document.querySelectorAll('.btn--primary').forEach(b => {
       b.style.opacity = '0.6';
       b.style.pointerEvents = 'none';
@@ -146,9 +177,8 @@ function setupCookieBanner() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const deadline = getDeadline();
-  tick(deadline);
-  setInterval(() => tick(deadline), 1000);
+  tick();
+  setInterval(tick, 1000);
   setupStickyCta();
   shuffleCovers();
   setupCookieBanner();
