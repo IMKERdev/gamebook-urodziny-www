@@ -2,10 +2,9 @@
    3. URODZINY GAMEBOOK · Countdown logic
    ============================================ */
 
-// Stale daty promocji (Europe/Warsaw, CEST = UTC+2 w maju).
-// Pre-launch: do 14 maja 00:00. Active: 14 maja 00:00 - 31 maja 23:59:59. Po: expired.
-const START_MS = Date.UTC(2026, 4, 13, 22, 0, 0);
-const END_MS   = Date.UTC(2026, 4, 31, 21, 59, 59);
+// Koniec promocji: 31 maja 2026 polnoc Europe/Warsaw (= 00:00 1 czerwca).
+// Strona jest aktywna od razu - oficjalny start to 14 maja, ale licznik dziala juz teraz.
+const END_MS = Date.UTC(2026, 4, 31, 22, 0, 0);
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
@@ -19,17 +18,10 @@ function formatTimer(ms) {
   return { d, h, m, s };
 }
 
-function getPhase(now) {
-  if (now < START_MS) return 'prelaunch';
-  if (now > END_MS)   return 'expired';
-  return 'active';
-}
-
 function tick() {
   const now = Date.now();
-  const phase = getPhase(now);
-  const target = phase === 'prelaunch' ? START_MS : END_MS;
-  const t = formatTimer(target - now);
+  const expired = now >= END_MS;
+  const t = formatTimer(END_MS - now);
 
   // Hero countdown digits
   const dni  = document.getElementById('dni');
@@ -44,58 +36,38 @@ function tick() {
   // Hero countdown label
   const hudLabel = document.getElementById('hudLabel');
   if (hudLabel) {
-    hudLabel.textContent =
-      phase === 'expired'   ? 'PROMOCJA ZAKONCZONA' :
-      phase === 'prelaunch' ? 'STARTUJE ZA // 14 MAJA RUSZAMY'
-                            : 'TIME LEFT // BOXY ZNIKAJA ZA';
+    hudLabel.textContent = expired
+      ? 'PROMOCJA ZAKONCZONA'
+      : 'TIME LEFT // BOXY ZNIKAJA ZA';
   }
 
   // Top urgency bar timer + pill
   const top = document.getElementById('topTimer');
   if (top) {
-    top.textContent = phase === 'expired'
+    top.textContent = expired
       ? 'PROMOCJA ZAKONCZONA'
       : `${pad(t.d)}d ${pad(t.h)}:${pad(t.m)}:${pad(t.s)}`;
   }
   const pillLabel = document.getElementById('urgencyPillLabel');
   if (pillLabel) {
-    pillLabel.textContent =
-      phase === 'expired'   ? 'PROMOCJA ZAKONCZONA' :
-      phase === 'prelaunch' ? 'STARTUJE 14 MAJA'
-                            : 'PROMO ACTIVE';
-  }
-  const urgencyText = document.getElementById('urgencyText');
-  if (urgencyText) {
-    urgencyText.innerHTML = phase === 'prelaunch'
-      ? '<strong>Do -48% z gratisami</strong> &middot; <strong>14-31 maja</strong> &middot; potem boxy <strong>znikają z oferty</strong>'
-      : '<strong>Do -48% z gratisami</strong> &middot; tylko <strong>do 31 maja</strong> &middot; potem boxy <strong>znikają z oferty</strong>';
+    pillLabel.textContent = expired ? 'PROMOCJA ZAKONCZONA' : 'PROMO ACTIVE';
   }
 
-  // Sticky bottom bar - timer + verb
+  // Sticky bottom bar - timer
   const sticky = document.getElementById('stickyTimer');
   if (sticky) {
-    sticky.textContent = phase === 'expired' ? 'koniec' : `${t.d}d ${pad(t.h)}h`;
-  }
-  const stickyVerb = document.getElementById('stickyVerb');
-  if (stickyVerb) {
-    stickyVerb.textContent =
-      phase === 'expired'   ? '' :
-      phase === 'prelaunch' ? 'startuje za'
-                            : 'znika za';
+    sticky.textContent = expired ? 'koniec' : `${t.d}d ${pad(t.h)}h`;
   }
 
   // Final CTA title
   const finalTitle = document.getElementById('finalCtaTitle');
   if (finalTitle) {
-    finalTitle.innerHTML =
-      phase === 'expired'
-        ? 'Promocja zakonczona.<br>Boxy znikneły z oferty.'
-        : phase === 'prelaunch'
-          ? `Startuje za <span id="finalDays">${t.d}</span> dni.<br>Trwa od 14 do 31 maja.`
-          : `Masz <span id="finalDays">${t.d}</span> dni.<br>Potem boxy znikają z oferty.`;
+    finalTitle.innerHTML = expired
+      ? 'Promocja zakonczona.<br>Boxy znikneły z oferty.'
+      : `Masz <span id="finalDays">${t.d}</span> dni.<br>Potem boxy znikają z oferty.`;
   }
 
-  if (phase === 'expired') {
+  if (expired) {
     document.querySelectorAll('.btn--primary').forEach(b => {
       b.style.opacity = '0.6';
       b.style.pointerEvents = 'none';
