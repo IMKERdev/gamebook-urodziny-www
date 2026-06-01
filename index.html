@@ -3,22 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. urodziny Gamebook | Urodzinowe Boxy do -48% z gratisami (do 31 maja)</title>
-  <meta name="description" content="Świętuj z nami 3. urodziny wydawnictwa Gamebook. Trzy urodzinowe boxy książek z oszczędnością do 48% (z gratisami: audiobook „Wilczym śladem" i ebook „Rebelianci"). Tylko do 31 maja.">
+  <title>3. urodziny Gamebook — zakończone. Zapraszamy za rok!</title>
+  <meta name="description" content="Świętowanie 3. urodzin wydawnictwa Gamebook dobiegło końca. Urodzinowe boxy zniknęły z oferty — wracamy za rok. Zapisz się na newsletter i nie przegap kolejnej edycji (w bonusie dwa darmowe ebooki).">
+  <meta name="robots" content="noindex, follow">
 
-  <meta property="og:title" content="3. urodziny Gamebook | Urodzinowe Boxy do -48%">
-  <meta property="og:description" content="Trzy starannie skomponowane boxy książkowe z oszczędnością do 48% (gratisy w pakiecie). Tylko do 31 maja - potem boxy znikają z oferty.">
+  <meta property="og:title" content="3. urodziny Gamebook — zakończone. Zapraszamy za rok!">
+  <meta property="og:description" content="Świętowanie dobiegło końca, boxy zniknęły z oferty. Wracamy za rok — zapisz się na newsletter, żeby nie przegapić kolejnej edycji.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://urodziny.gamebook.pl/">
   <meta property="og:image" content="https://urodziny.gamebook.pl/assets/og-image.jpg">
   <meta property="og:image:width" content="1920">
   <meta property="og:image:height" content="1080">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:alt" content="3. urodziny wydawnictwa Gamebook - urodzinowe boxy z oszczędnością do 48% z gratisami, do 31 maja 2026">
   <meta property="og:locale" content="pl_PL">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="3. urodziny Gamebook | Urodzinowe Boxy do -48%">
-  <meta name="twitter:description" content="Trzy starannie skomponowane boxy książkowe. Oszczędzasz do 48% z gratisami. Tylko do 31 maja.">
+  <meta name="twitter:title" content="3. urodziny Gamebook — zakończone">
+  <meta name="twitter:description" content="Boxy zniknęły z oferty. Wracamy za rok — zapisz się na newsletter.">
   <meta name="twitter:image" content="https://urodziny.gamebook.pl/assets/og-image.jpg">
 
   <link rel="icon" type="image/png" href="assets/favicon.png" sizes="32x32">
@@ -31,584 +30,75 @@
 
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="po">
 
-  <!-- ========= STICKY HEADER (urgency + nav) ========= -->
-  <div class="sticky-header">
-
-  <!-- ========= URGENCY BAR (HUD-style) ========= -->
-  <div class="urgency-bar" role="region" aria-label="Promocja urodzinowa">
-    <div class="urgency-bar__inner">
-      <span class="urgency-bar__pill"><span class="blink-square" aria-hidden="true"></span><span id="urgencyPillLabel">PROMO ACTIVE</span></span>
-      <span class="urgency-bar__text">
-        <strong>Do -48% z gratisami</strong> &middot; tylko <strong>do 31 maja</strong> &middot; potem boxy <strong>znikają z oferty</strong>
-      </span>
-      <span class="urgency-bar__timer" id="topTimer" aria-live="off">--d 00:00:00</span>
-    </div>
-  </div>
+  <!-- arcade ambience -->
+  <div class="po__grid" aria-hidden="true"></div>
+  <div class="po__scanlines" aria-hidden="true"></div>
+  <div class="po__vignette" aria-hidden="true"></div>
 
   <!-- ========= NAV ========= -->
-  <header class="nav">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo" aria-label="Gamebook - strona główna">
-        <img src="assets/logo.png" alt="Gamebook" width="180" height="38">
-      </a>
-      <nav class="nav__links" aria-label="Sekcje">
-        <a href="#stage-1" class="nav__link"><span class="nav__link-num">01</span><span class="nav__link-name">FAN RETRO</span></a>
-        <a href="#stage-2" class="nav__link"><span class="nav__link-num">02</span><span class="nav__link-name">MIECZE, ZOMBIE I&nbsp;PIKSELE</span></a>
-        <a href="#stage-3" class="nav__link"><span class="nav__link-num">03</span><span class="nav__link-name">BITMAPOWY ŚWIAT</span></a>
-      </nav>
-      <a href="#stage-1" class="nav__cta">Wybierz box</a>
-    </div>
+  <header class="po__nav">
+    <a href="https://gamebook.pl/" class="po__logo" aria-label="Gamebook - strona główna">
+      <img src="assets/logo.png" alt="Gamebook" width="180" height="38">
+    </a>
+    <a href="https://gamebook.pl/" class="po__nav-link">Księgarnia&nbsp;<span aria-hidden="true">→</span></a>
   </header>
 
-  </div><!-- /.sticky-header -->
+  <main class="po__main">
+    <div class="po__split">
 
-  <!-- ========= HERO (split layout: copy + countdown/covers) ========= -->
-  <section class="hero">
-    <div class="hero__bg-grid" aria-hidden="true"></div>
-    <div class="hero__scanlines" aria-hidden="true"></div>
+      <!-- ========= LEFT — GAME OVER / ZAKOŃCZONE ========= -->
+      <section class="po__hero">
+        <span class="press-start press-start--red">▸ GAME OVER</span>
 
-    <div class="hero__inner">
-      <div class="hero__left">
-        <span class="press-start" aria-hidden="true">▸ PRESS START</span>
-
-        <div class="hero__lvl-row">
+        <div class="po__lvl-row">
           <span class="lvl-badge">
             <span class="lvl-badge__lv">LV.</span>
             <span class="lvl-badge__num">3</span>
           </span>
-          <span class="hero__lvl-text">
-            <span class="hero__lvl-text-top">URODZINY UNLOCKED</span>
-            <span class="hero__lvl-text-bottom">3 lata wydawnictwa Gamebook</span>
+          <span class="po__lvl-text">
+            <span class="po__lvl-text-top">URODZINY COMPLETE</span>
+            <span class="po__lvl-text-bottom">3. urodziny wydawnictwa Gamebook</span>
           </span>
         </div>
 
-        <h1 class="hero__title">
-          Urodzinowe<br>
-          <span class="hero__title-accent">BOXY</span>
+        <h1 class="po__title">
+          Urodziny<br>
+          <span class="po__title-accent">ZAKOŃCZONE</span>
         </h1>
 
-        <p class="hero__subtitle">
-          Trzy limitowane boxy z naszymi książkami. Oszczędność <strong>do 48%</strong> z gratisami. Audiobook i&nbsp;ebook w pakiecie. <strong>Tylko do 31 maja</strong>.
+        <p class="po__lead">
+          Świętowanie 3. urodzin Gamebook dobiegło końca. Dziękujemy wszystkim, którzy zgarnęli urodzinowe boxy i&nbsp;bawili się z&nbsp;nami! Boxy już zniknęły z&nbsp;oferty.
         </p>
 
-        <div class="hero__cta-row">
-          <a href="#stage-1" class="btn btn--primary btn--xl">► Wybieram swój box</a>
-        </div>
+        <p class="po__continue">
+          <span class="blink-square" aria-hidden="true"></span>
+          CONTINUE? &middot; urodziny już za rok
+        </p>
 
-        <ul class="hero__pills" aria-label="Korzyści">
-          <li><span class="dot" aria-hidden="true"></span>Darmowa dostawa</li>
-          <li><span class="dot" aria-hidden="true"></span>Szybka wysyłka (24h)</li>
-          <li><span class="dot" aria-hidden="true"></span>14 dni na zwrot</li>
-        </ul>
-
-        <div class="zbyszek-card">
-          <img src="assets/zbyszek.jpg" alt="Zbyszek" class="zbyszek-card__avatar">
-          <div class="zbyszek-card__text">
-            <span class="zbyszek-card__quote">„Przygotowałem dla Ciebie trzy boxy, które sam chciałbym otrzymać na urodziny!"</span>
-            <span class="zbyszek-card__name">Zbyszek Jankowski &middot; założyciel Gamebook</span>
-          </div>
+        <div class="po__secondary">
+          <a href="https://gamebook.pl/" class="btn btn--primary btn--lg">► Zajrzyj do księgarni</a>
+          <a href="https://buycoffee.to/gamebook" target="_blank" rel="noopener" class="btn btn--ghost btn--lg">☕ Postaw kawę Zbyszkowi</a>
         </div>
-      </div>
+      </section>
 
-      <div class="hero__right">
-        <!-- Covers wall (produkty u góry) - tylko okładki książek, bez gratisów -->
-        <div class="covers-wall" aria-hidden="true">
-          <div class="cover cover--1"><img src="assets/wilczym.jpg" alt=""></div>
-          <div class="cover cover--2"><img src="assets/ostatni-z-nas.jpg" alt=""></div>
-          <div class="cover cover--3"><img src="assets/bajty.jpg" alt=""></div>
-          <div class="cover cover--4"><img src="assets/konsole.jpg" alt=""></div>
-          <div class="cover cover--5"><img src="assets/ksiega-crpg.jpg" alt=""></div>
-          <div class="cover cover--6"><img src="assets/almanach-przygodowki.jpg" alt=""></div>
-        </div>
+      <!-- ========= RIGHT — NEWSLETTER ========= -->
+      <section class="po__news" id="newsletter">
+        <span class="press-start press-start--green">▸ INSERT EMAIL TO CONTINUE</span>
+        <h2 class="po__news-title">Nie przegap kolejnej edycji</h2>
+        <p class="po__news-lead">
+          Zapisz się na newsletter Gamebook — damy znać, gdy ruszą kolejne urodziny i&nbsp;nowe książki. A&nbsp;na start odbierzesz <strong>dwa darmowe ebooki</strong>: „Bajtek. Legenda" oraz „Wszystkie skarby Atari" (PDF&nbsp;+&nbsp;EPUB).
+        </p>
 
-        <!-- HUD-style countdown (na dole) -->
-        <div class="hud-countdown" id="heroCountdown" role="timer" aria-label="Czas do końca promocji">
-          <div class="hud-countdown__head">
-            <span class="hud-countdown__pulse" aria-hidden="true"></span>
-            <span class="hud-countdown__label" id="hudLabel">TIME LEFT // BOXY ZNIKAJA ZA</span>
-          </div>
-          <div class="hud-countdown__cells">
-            <div class="hud-cell"><span class="hud-cell__num" id="dni">--</span><span class="hud-cell__lab">dni</span></div>
-            <div class="hud-cell__sep" aria-hidden="true">:</div>
-            <div class="hud-cell"><span class="hud-cell__num" id="godz">00</span><span class="hud-cell__lab">godz</span></div>
-            <div class="hud-cell__sep" aria-hidden="true">:</div>
-            <div class="hud-cell"><span class="hud-cell__num" id="min">00</span><span class="hud-cell__lab">min</span></div>
-            <div class="hud-cell__sep" aria-hidden="true">:</div>
-            <div class="hud-cell"><span class="hud-cell__num" id="sek">00</span><span class="hud-cell__lab">sek</span></div>
-          </div>
+        <div class="po__form">
+          <!-- MailerLite embedded form (gamebook.pl, account 364778) -->
+          <div class="ml-embedded" data-form="eCANX3"></div>
         </div>
-      </div>
+      </section>
+
     </div>
-  </section>
-
-  <!-- ========= LEVEL SELECT INTRO (krótki, szeroki) ========= -->
-  <section class="level-select-intro">
-    <div class="level-select-intro__inner">
-      <span class="press-start press-start--green">▸ SELECT YOUR BOX</span>
-      <h2 class="level-select-intro__title">Trzy boxy. Jedna decyzja.</h2>
-      <p class="level-select-intro__lead">Każdy box to <strong>3 książki + 2 gratisy</strong> (audiobook i&nbsp;ebook). Oszczędzasz <strong>do 48% z gratisami</strong> w pakiecie. Promocja trwa tylko <strong>do 31 maja</strong> - potem boxy <strong>znikają z&nbsp;oferty na zawsze</strong>, razem z gratisami.</p>
-      <div class="level-select-intro__chips">
-        <a href="#stage-1" class="chip"><span class="chip__num">01</span><span class="chip__name">FAN RETRO</span></a>
-        <a href="#stage-2" class="chip chip--featured"><span class="chip__num">02</span><span class="chip__name">MIECZE, ZOMBIE I&nbsp;PIKSELE</span><span class="chip__star">★</span></a>
-        <a href="#stage-3" class="chip"><span class="chip__num">03</span><span class="chip__name">BITMAPOWY ŚWIAT</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========= STAGE 01 — FAN RETRO ========= -->
-  <section class="stage" id="stage-1">
-    <div class="stage__hud">
-      <span class="stage__hud-stage">STAGE 01 / 03</span>
-      <span class="stage__hud-bar" aria-hidden="true">
-        <span class="stage__hud-bar-fill" style="width: 33%"></span>
-      </span>
-      <span class="stage__hud-meta">FAN RETRO</span>
-    </div>
-
-    <div class="stage__inner">
-      <header class="stage__header">
-        <span class="stage__theme">▰ STAGE 01 &middot; FAN RETRO</span>
-        <h2 class="stage__title">Bajty, konsole i&nbsp;te&nbsp;gry, których&nbsp;nie&nbsp;było</h2>
-        <p class="stage__lead">Box dla tych, którzy pamiętają kasety z grami, Pegasusa pod telewizorem i chcą odkryć znacznie więcej. Trzy książki - jedna podróż przez polską i światową historię gier.</p>
-      </header>
-
-      <div class="stage__copy">
-        <ul class="stage__list">
-          <li>
-            <span class="stage__list-cover"><img src="assets/bajty.jpg" alt=""></span>
-            <div>
-              <strong>Bajty polskie 3.0</strong>
-              <span>polscy pionierzy, pierwsze gry i początek prasy</span>
-              <small class="stage__list-spec">360 stron &middot; twarda oprawa &middot; autorskie ilustracje pixel art</small>
-            </div>
-            <span class="stage__list-price">99,90 zł</span>
-          </li>
-          <li>
-            <span class="stage__list-cover"><img src="assets/konsole.jpg" alt=""></span>
-            <div>
-              <strong>Konsole do gier 2.0</strong>
-              <span>pełna kronika 50 lat konsol</span>
-              <small class="stage__list-spec">312 stron &middot; twarda oprawa &middot; 145 konsol &middot; 400 profesjonalnych zdjęć</small>
-            </div>
-            <span class="stage__list-price">149,90 zł</span>
-          </li>
-          <li>
-            <span class="stage__list-cover"><img src="assets/gry-ktorych-nie-bylo.jpg" alt=""></span>
-            <div>
-              <strong>Gry, których nie było</strong>
-              <span>wzloty i upadki: opowieści o anulowanych grach</span>
-              <small class="stage__list-spec">704 strony &middot; twarda oprawa &middot; 108 opisanych gier</small>
-            </div>
-            <span class="stage__list-price">149,90 zł</span>
-          </li>
-          <li class="stage__list-bonus">
-            <span class="stage__list-cover stage__list-cover--bonus"><img src="assets/wilczym-audiobook.jpg" alt=""></span>
-            <div>
-              <strong>GRATIS &middot; Audiobook „Wilczym śladem"</strong>
-              <span>12h o&nbsp;powstaniu Wiedźmina&nbsp;3</span>
-            </div>
-            <span class="stage__list-price stage__list-price--free"><s>49,90 zł</s> 0&nbsp;zł</span>
-          </li>
-          <li class="stage__list-bonus">
-            <span class="stage__list-cover stage__list-cover--bonus"><img src="assets/rebelianci-ebook.jpg" alt=""></span>
-            <div>
-              <strong>GRATIS &middot; Ebook „Rebelianci"</strong>
-              <span>jak Sony stworzyło PlayStation</span>
-            </div>
-            <span class="stage__list-price stage__list-price--free"><s>24,90 zł</s> 0&nbsp;zł</span>
-          </li>
-        </ul>
-
-        <div class="stage__price" data-savings="-41%">
-          <div class="stage__price-row">
-            <span class="stage__price-old-label">Wartość zestawu</span>
-            <span class="stage__price-old">474,50 zł</span>
-          </div>
-          <div class="stage__price-now">
-            <span class="stage__price-now-label">Cena urodzinowa</span>
-            <span class="stage__price-new">279,90<span class="zl">zł</span></span>
-          </div>
-          <span class="stage__price-save">Oszczędzasz <strong>195 zł</strong> &middot; -41% z gratisami</span>
-        </div>
-
-        <a href="https://gamebook.salescrm.pl/cart/clear/add_product_set/4328" target="_blank" rel="noopener" class="btn btn--primary btn--xl btn--full">► Zamawiam za 279,90 zł <small>(oszczędzam 195 zł)</small></a>
-
-        <div class="stage__trust">
-          <span>14 dni na zwrot</span>
-          <span>Tpay / BLIK / karta</span>
-          <span>Szybka wysyłka (24h)</span>
-        </div>
-
-        <div class="stage__expiry">
-          <span class="stage__expiry-icon" aria-hidden="true">⏱</span>
-          <span><strong>Tylko do 31 maja.</strong> Po promocji ten box <strong>znika z oferty</strong>, gratisy znikają, ceny książek wracają do 99,90-149,90&nbsp;zł/szt.</span>
-        </div>
-      </div>
-
-      <div class="stage__visual">
-        <div class="book-stack">
-          <div class="book book--1"><img src="assets/bajty.jpg" alt="Bajty polskie 3.0"></div>
-          <div class="book book--2"><img src="assets/konsole.jpg" alt="Konsole do gier 2.0"></div>
-          <div class="book book--3"><img src="assets/gry-ktorych-nie-bylo.jpg" alt="Gry, których nie było"></div>
-        </div>
-        <div class="bonus-strip">
-          <span class="bonus-strip__label">+ W PAKIECIE GRATIS</span>
-          <div class="bonus-strip__items">
-            <div class="bonus-mini">
-              <img src="assets/wilczym-audiobook.jpg" alt="Audiobook Wilczym śladem">
-              <span class="bonus-mini__tag">AUDIOBOOK</span>
-            </div>
-            <div class="bonus-mini">
-              <img src="assets/rebelianci-ebook.jpg" alt="Ebook Rebelianci">
-              <span class="bonus-mini__tag">EBOOK</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== TRANSITION ===== -->
-  <div class="stage-transition" aria-hidden="true">
-    <span class="stage-transition__bar"></span>
-    <span class="stage-transition__text">▸ LOADING STAGE 02 . . .</span>
-    <span class="stage-transition__bar"></span>
-  </div>
-
-  <!-- ========= STAGE 02 — MIECZE, ZOMBIE I PIKSELE ========= -->
-  <section class="stage stage--featured" id="stage-2">
-    <div class="stage__hud">
-      <span class="stage__hud-stage">STAGE 02 / 03</span>
-      <span class="stage__hud-bar" aria-hidden="true">
-        <span class="stage__hud-bar-fill" style="width: 66%"></span>
-      </span>
-      <span class="stage__hud-meta stage__hud-meta--star">★ NAJCZĘŚCIEJ WYBIERANY</span>
-    </div>
-
-    <div class="stage__inner">
-      <header class="stage__header">
-        <span class="stage__theme">▰ STAGE 02 &middot; MIECZE, ZOMBIE I&nbsp;PIKSELE</span>
-        <h2 class="stage__title">W&nbsp;pogoni za marzeniami: opowieści z&nbsp;gamedevu</h2>
-        <p class="stage__lead">Wiedźmin 3, The Last of Us i polscy pionierzy gier - w jednym pakiecie. Box dla każdego, kto chce zobaczyć, jak rodziły się legendy i&nbsp;dlaczego niektóre tytuły zmieniają branżę na zawsze.</p>
-      </header>
-
-      <div class="stage__copy">
-        <ul class="stage__list">
-          <li>
-            <span class="stage__list-cover"><img src="assets/wilczym.jpg" alt=""></span>
-            <div>
-              <strong>Wilczym śladem</strong>
-              <span>jak powstał Wiedźmin&nbsp;3: Dziki&nbsp;Gon</span>
-              <small class="stage__list-spec">316 stron &middot; twarda oprawa &middot; nominacja: Książka Roku 2025 (debiut)</small>
-            </div>
-            <span class="stage__list-price">69,90 zł</span>
-          </li>
-          <li>
-            <span class="stage__list-cover"><img src="assets/ostatni-z-nas.jpg" alt=""></span>
-            <div>
-              <strong>Ostatni z nas</strong>
-              <span>The Last of&nbsp;Us od&nbsp;kuchni</span>
-              <small class="stage__list-spec">368 stron &middot; twarda oprawa &middot; opis obu części serii</small>
-            </div>
-            <span class="stage__list-price">59,90 zł</span>
-          </li>
-          <li>
-            <span class="stage__list-cover"><img src="assets/bajty.jpg" alt=""></span>
-            <div>
-              <strong>Bajty polskie 3.0</strong>
-              <span>narodziny polskiej branży gier</span>
-              <small class="stage__list-spec">360 stron &middot; twarda oprawa &middot; autorskie ilustracje pixel art</small>
-            </div>
-            <span class="stage__list-price">99,90 zł</span>
-          </li>
-          <li class="stage__list-bonus">
-            <span class="stage__list-cover stage__list-cover--bonus"><img src="assets/wilczym-audiobook.jpg" alt=""></span>
-            <div>
-              <strong>GRATIS &middot; Audiobook „Wilczym śladem"</strong>
-              <span>12h o&nbsp;powstaniu Wiedźmina&nbsp;3</span>
-            </div>
-            <span class="stage__list-price stage__list-price--free"><s>49,90 zł</s> 0&nbsp;zł</span>
-          </li>
-          <li class="stage__list-bonus">
-            <span class="stage__list-cover stage__list-cover--bonus"><img src="assets/rebelianci-ebook.jpg" alt=""></span>
-            <div>
-              <strong>GRATIS &middot; Ebook „Rebelianci"</strong>
-              <span>jak Sony stworzyło PlayStation</span>
-            </div>
-            <span class="stage__list-price stage__list-price--free"><s>24,90 zł</s> 0&nbsp;zł</span>
-          </li>
-        </ul>
-
-        <div class="stage__price" data-savings="-48%">
-          <div class="stage__price-row">
-            <span class="stage__price-old-label">Wartość zestawu</span>
-            <span class="stage__price-old">304,50 zł</span>
-          </div>
-          <div class="stage__price-now">
-            <span class="stage__price-now-label">Cena urodzinowa</span>
-            <span class="stage__price-new">159,90<span class="zl">zł</span></span>
-          </div>
-          <span class="stage__price-save">Oszczędzasz <strong>145 zł</strong> &middot; -48% z gratisami</span>
-        </div>
-
-        <a href="https://gamebook.salescrm.pl/cart/clear/add_product_set/4329" target="_blank" rel="noopener" class="btn btn--primary btn--xl btn--full">► Zamawiam za 159,90 zł <small>(oszczędzam 145 zł)</small></a>
-
-        <div class="stage__trust">
-          <span>14 dni na zwrot</span>
-          <span>Tpay / BLIK / karta</span>
-          <span>Szybka wysyłka (24h)</span>
-        </div>
-
-        <div class="stage__expiry">
-          <span class="stage__expiry-icon" aria-hidden="true">⏱</span>
-          <span><strong>Tylko do 31 maja.</strong> Po promocji ten box <strong>znika z oferty</strong>, gratisy znikają, książki dostępne tylko osobno w cenie regularnej.</span>
-        </div>
-      </div>
-
-      <div class="stage__visual">
-        <div class="book-stack">
-          <div class="book book--1"><img src="assets/wilczym.jpg" alt="Wilczym śladem"></div>
-          <div class="book book--2"><img src="assets/ostatni-z-nas.jpg" alt="Ostatni z nas"></div>
-          <div class="book book--3"><img src="assets/bajty.jpg" alt="Bajty polskie 3.0"></div>
-        </div>
-        <div class="bonus-strip">
-          <span class="bonus-strip__label">+ W PAKIECIE GRATIS</span>
-          <div class="bonus-strip__items">
-            <div class="bonus-mini">
-              <img src="assets/wilczym-audiobook.jpg" alt="Audiobook Wilczym śladem">
-              <span class="bonus-mini__tag">AUDIOBOOK</span>
-            </div>
-            <div class="bonus-mini">
-              <img src="assets/rebelianci-ebook.jpg" alt="Ebook Rebelianci">
-              <span class="bonus-mini__tag">EBOOK</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== TRANSITION ===== -->
-  <div class="stage-transition" aria-hidden="true">
-    <span class="stage-transition__bar"></span>
-    <span class="stage-transition__text">▸ LOADING STAGE 03 . . .</span>
-    <span class="stage-transition__bar"></span>
-  </div>
-
-  <!-- ========= STAGE 03 — BITMAPOWY ŚWIAT ========= -->
-  <section class="stage" id="stage-3">
-    <div class="stage__hud">
-      <span class="stage__hud-stage">STAGE 03 / 03</span>
-      <span class="stage__hud-bar" aria-hidden="true">
-        <span class="stage__hud-bar-fill" style="width: 100%"></span>
-      </span>
-      <span class="stage__hud-meta">FINAL STAGE</span>
-    </div>
-
-    <div class="stage__inner">
-      <header class="stage__header">
-        <span class="stage__theme">▰ STAGE 03 &middot; BITMAPOWY ŚWIAT</span>
-        <h2 class="stage__title">Dla&nbsp;tych, co kochają RPG-i, przygodówki i&nbsp;kolekcjonerski sznyt</h2>
-        <p class="stage__lead">Najbardziej „kolekcjonerski" z naszych boxów. Komputerowe RPG-i z trzech dekad, point&nbsp;&amp;&nbsp;clicki, których nie wolno zapomnieć i&nbsp;niezrealizowane projekty branży.</p>
-      </header>
-
-      <div class="stage__copy">
-        <ul class="stage__list">
-          <li>
-            <span class="stage__list-cover"><img src="assets/ksiega-crpg.jpg" alt=""></span>
-            <div>
-              <strong>Księga CRPG</strong>
-              <span>biblia komputerowych RPG</span>
-              <small class="stage__list-spec">604 strony &middot; twarda oprawa &middot; 450 gier &middot; 2000 ilustracji</small>
-            </div>
-            <span class="stage__list-price">179,90 zł</span>
-          </li>
-          <li>
-            <span class="stage__list-cover"><img src="assets/almanach-przygodowki.jpg" alt=""></span>
-            <div>
-              <strong>Almanach: Gry przygodowe</strong>
-              <span>hołd dla przygodówek point and click</span>
-              <small class="stage__list-spec">600 stron &middot; twarda oprawa &middot; 178 gier &middot; 55 wywiadów</small>
-            </div>
-            <span class="stage__list-price">179,90 zł</span>
-          </li>
-          <li>
-            <span class="stage__list-cover"><img src="assets/gry-ktorych-nie-bylo.jpg" alt=""></span>
-            <div>
-              <strong>Gry, których nie było</strong>
-              <span>gry nieodkryte i&nbsp;zapomniane</span>
-              <small class="stage__list-spec">704 strony &middot; twarda oprawa &middot; 108 opisanych gier</small>
-            </div>
-            <span class="stage__list-price">149,90 zł</span>
-          </li>
-          <li class="stage__list-bonus">
-            <span class="stage__list-cover stage__list-cover--bonus"><img src="assets/wilczym-audiobook.jpg" alt=""></span>
-            <div>
-              <strong>GRATIS &middot; Audiobook „Wilczym śladem"</strong>
-              <span>12h o&nbsp;powstaniu Wiedźmina&nbsp;3</span>
-            </div>
-            <span class="stage__list-price stage__list-price--free"><s>49,90 zł</s> 0&nbsp;zł</span>
-          </li>
-          <li class="stage__list-bonus">
-            <span class="stage__list-cover stage__list-cover--bonus"><img src="assets/rebelianci-ebook.jpg" alt=""></span>
-            <div>
-              <strong>GRATIS &middot; Ebook „Rebelianci"</strong>
-              <span>jak Sony stworzyło PlayStation</span>
-            </div>
-            <span class="stage__list-price stage__list-price--free"><s>24,90 zł</s> 0&nbsp;zł</span>
-          </li>
-        </ul>
-
-        <div class="stage__price" data-savings="-39%">
-          <div class="stage__price-row">
-            <span class="stage__price-old-label">Wartość zestawu</span>
-            <span class="stage__price-old">584,50 zł</span>
-          </div>
-          <div class="stage__price-now">
-            <span class="stage__price-now-label">Cena urodzinowa</span>
-            <span class="stage__price-new">359,90<span class="zl">zł</span></span>
-          </div>
-          <span class="stage__price-save">Oszczędzasz <strong>225 zł</strong> &middot; -39% z gratisami</span>
-        </div>
-
-        <a href="https://gamebook.salescrm.pl/cart/clear/add_product_set/4330" target="_blank" rel="noopener" class="btn btn--primary btn--xl btn--full">► Zamawiam za 359,90 zł <small>(oszczędzam 225 zł)</small></a>
-
-        <div class="stage__trust">
-          <span>14 dni na zwrot</span>
-          <span>Tpay / BLIK / karta</span>
-          <span>Szybka wysyłka (24h)</span>
-        </div>
-
-        <div class="stage__expiry">
-          <span class="stage__expiry-icon" aria-hidden="true">⏱</span>
-          <span><strong>Tylko do 31 maja.</strong> Po promocji ten box <strong>znika z oferty</strong>, gratisy znikają, Księga CRPG i Almanach wracają do cen regularnych (179,90&nbsp;zł/szt).</span>
-        </div>
-      </div>
-
-      <div class="stage__visual">
-        <div class="book-stack">
-          <div class="book book--1"><img src="assets/ksiega-crpg.jpg" alt="Księga CRPG"></div>
-          <div class="book book--2"><img src="assets/almanach-przygodowki.jpg" alt="Almanach: Gry przygodowe"></div>
-          <div class="book book--3"><img src="assets/gry-ktorych-nie-bylo.jpg" alt="Gry, których nie było"></div>
-        </div>
-        <div class="bonus-strip">
-          <span class="bonus-strip__label">+ W PAKIECIE GRATIS</span>
-          <div class="bonus-strip__items">
-            <div class="bonus-mini">
-              <img src="assets/wilczym-audiobook.jpg" alt="Audiobook Wilczym śladem">
-              <span class="bonus-mini__tag">AUDIOBOOK</span>
-            </div>
-            <div class="bonus-mini">
-              <img src="assets/rebelianci-ebook.jpg" alt="Ebook Rebelianci">
-              <span class="bonus-mini__tag">EBOOK</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========= COFFEE BAR — "BONUS LEVEL" ========= -->
-  <section class="coffee">
-    <div class="coffee__inner">
-      <div class="coffee__photo">
-        <img src="assets/zbyszek.jpg" alt="Zbyszek - założyciel Gamebook">
-      </div>
-      <div class="coffee__text">
-        <span class="press-start press-start--green">▸ BONUS LEVEL</span>
-        <h2 class="coffee__title">Postaw urodzinową kawę <span class="text-accent">Zbyszkowi</span></h2>
-        <p class="coffee__lead">Założyciel i prowadzący wydawnictwo Gamebook. Bez korporacji, bez dużych funduszy - każda książka to ręcznie złożony projekt. Małe „dzięki" robi tu wielką różnicę.</p>
-        <div class="coffee__cta-row">
-          <a href="https://buycoffee.to/gamebook" target="_blank" rel="noopener" class="btn btn--primary btn--lg">☕ Postaw kawę</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========= INDIE PUBLISHER NOTE ========= -->
-  <section class="indie">
-    <div class="indie__inner">
-      <div class="indie__stamp" aria-hidden="true">
-        <span class="indie__stamp-stars">★ ★ ★</span>
-        <span class="indie__stamp-big">3 LATA</span>
-        <span class="indie__stamp-text">INDIE PUBLISHER</span>
-        <span class="indie__stamp-est">EST. 2023</span>
-      </div>
-      <div class="indie__copy">
-        <span class="press-start">▸ NIE TYLKO ZAKUP</span>
-        <h2 class="indie__title">Kupując box, wspierasz <span class="text-accent">niezależne wydawnictwo</span></h2>
-        <p class="indie__lead">Bez korporacji, bez dużych funduszy, bez pośredników. Każda nasza książka to wyraz pasji do tego, co robimy - od pomysłu, przez druk, po pakowanie. Trzy lata temu zaczęliśmy z miłości do gier i pięknie wydanych książek. Dziś planujemy kolejne, a wszystko dzięki wsparciu naszych Czytelników.</p>
-        <div class="indie__stats">
-          <div class="indie-stat"><strong>3</strong><span>lata na rynku</span></div>
-          <div class="indie-stat"><strong>11</strong><span>wydanych tytułów</span></div>
-          <div class="indie-stat"><strong>100%</strong><span>niezależni</span></div>
-          <div class="indie-stat"><strong>1</strong><span>pasja</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========= FAQ ========= -->
-  <section class="faq">
-    <div class="section-head section-head--center">
-      <span class="press-start press-start--green">▸ HELP MENU</span>
-      <h2 class="faq__title">Pytania i odpowiedzi</h2>
-    </div>
-
-    <div class="faq__list">
-      <details class="faq__item" open>
-        <summary>Co dokładnie znika 31 maja?</summary>
-        <div class="faq__answer">Wszystko: urodzinowa cena (do -48%), oba gratisy (audiobook 49,90 zł + ebook 24,90 zł), trzy spakowane boxy. Po 31 maja książki będą dostępne tylko osobno, w cenach regularnych (od 59,90 do 179,90 zł/szt). Boxy w tym składzie nie wrócą.</div>
-      </details>
-
-      <details class="faq__item">
-        <summary>Czy nie taniej kupić te książki osobno?</summary>
-        <div class="faq__answer">Sprawdź sam - wartość książek z FAN RETRO to 399,70 zł (Bajty polskie 3.0: 99,90 zł + Konsole do gier 2.0: 149,90 zł + Gry, których nie było: 149,90 zł). Plus audiobook 49,90 zł i ebook 24,90 zł = razem <strong>474,50 zł</strong>. W boxie urodzinowym płacisz <strong>279,90 zł</strong>. Oszczędzasz 195 zł, czyli 41%. W boxie MIECZE, ZOMBIE I PIKSELE oszczędzasz aż <strong>145 zł (-48%)</strong>.</div>
-      </details>
-
-      <details class="faq__item">
-        <summary>Mogę zwrócić jeśli mi się nie spodoba?</summary>
-        <div class="faq__answer">Tak - masz <strong>14 dni od dostarczenia</strong> na zwrot bez podawania przyczyny (zgodnie z prawem konsumenckim). Wystarczy odesłać box w stanie pozwalającym na ponowną sprzedaż. Zwracamy pełną kwotę w 3-5 dni roboczych.</div>
-      </details>
-
-      <details class="faq__item">
-        <summary>Kiedy wysyłacie zamówienia?</summary>
-        <div class="faq__answer">Boxy wysyłamy w ciągu 24 godzin roboczych od zaksięgowania płatności. Kurier InPost / Paczkomat - standardowo 1-2 dni robocze. Wysyłka jest darmowa.</div>
-      </details>
-
-      <details class="faq__item">
-        <summary>Czy gratisy (audiobook + ebook) dostaję od razu?</summary>
-        <div class="faq__answer">Tak. Linki do pobrania dostajesz mailem zaraz po zakupie - zanim jeszcze książki dotrą do Twoich drzwi.</div>
-      </details>
-
-      <details class="faq__item">
-        <summary>Czy mogę kupić więcej, niż jeden box?</summary>
-        <div class="faq__answer">Oczywiście - rabat 30% obowiązuje na każdy zamówiony box. Każde zamówienie zawiera komplet gratisów (audiobook + ebook).</div>
-      </details>
-
-      <details class="faq__item">
-        <summary>Co jeśli mam już którąś z książek?</summary>
-        <div class="faq__answer">Boxy są stałe - nie zmieniamy ich zawartości. Jeśli masz którąś książkę, drugi egzemplarz możesz podarować komuś bliskiemu.</div>
-      </details>
-
-      <details class="faq__item">
-        <summary>Co jeśli książka przyjdzie uszkodzona?</summary>
-        <div class="faq__answer">Robimy wszystko, żeby tak się nie zdarzyło - drukujemy książki w topowych drukarniach offsetowych, każdy box pakowany jest starannie i kontrolujemy go przed wysyłką. Ale jeśli mimo to coś dotrze uszkodzone - wymieniamy bez pytań. Wystarczy zdjęcie i mail na <a href="mailto:sklep@gamebook.pl">sklep@gamebook.pl</a>.</div>
-      </details>
-    </div>
-  </section>
-
-  <!-- ========= FINAL CTA ========= -->
-  <section class="final-cta">
-    <div class="final-cta__inner">
-      <span class="press-start press-start--green">▸ GAME OVER IN</span>
-      <h2 class="final-cta__title" id="finalCtaTitle">Masz <span id="finalDays">--</span> dni.<br>Potem boxy znikają z oferty.</h2>
-      <p class="final-cta__lead">Trzy boxy od 159,90 zł. Dwa gratisy w pakiecie. <strong>Do 48% taniej</strong>. Jeden raz w roku.</p>
-      <a href="#stage-1" class="btn btn--primary btn--xl">► Wybieram swój box</a>
-    </div>
-  </section>
+  </main>
 
   <!-- ========= FOOTER ========= -->
   <footer class="footer">
@@ -629,7 +119,7 @@
         <a href="https://gamebook.pl/kontakt/">Kontakt</a>
       </div>
       <div class="footer__bottom">
-        <p class="footer__copy">© 2026 Gamebook. <strong>Świętujemy 3 urodziny - dziękujemy, że jesteście z&nbsp;nami!</strong></p>
+        <p class="footer__copy">© 2026 Gamebook. <strong>Dziękujemy, że świętowaliście z&nbsp;nami 3 urodziny!</strong></p>
 
         <a href="https://imker.pl/" target="_blank" rel="noopener" class="footer__imker">
           <span class="footer__imker-label">Strony dla Twórców:</span>
@@ -639,70 +129,14 @@
     </div>
   </footer>
 
-  <!-- ========= STICKY BOTTOM CTA BAR ========= -->
-  <div class="sticky-cta" id="stickyCta" role="region" aria-label="Szybki wybór boxu">
-    <div class="sticky-cta__inner">
-      <div class="sticky-cta__info">
-        <span class="sticky-cta__pill"><span class="blink-square" aria-hidden="true"></span>do -48%</span>
-        <span class="sticky-cta__text"><strong>Urodzinowy box</strong> od <strong>159,90 zł</strong> &middot; znika za <span id="stickyTimer">--d</span></span>
-      </div>
-      <a href="#stage-1" class="btn btn--primary">► Wybierz box</a>
-    </div>
-  </div>
+  <!-- ========= MailerLite (account 364778) ========= -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '364778');
+  </script>
 
-  <!-- ========= COOKIES BANNER ========= -->
-  <div class="cookie-banner" id="cookieBanner" hidden>
-    <div class="cookie-banner__backdrop"></div>
-    <div class="cookie-banner__card" role="dialog" aria-labelledby="cookieTitle" aria-modal="true">
-      <h2 class="cookie-banner__title" id="cookieTitle">Pliki cookies</h2>
-      <p class="cookie-banner__text">
-        Strona <strong>urodziny.gamebook.pl</strong> używa plików cookies, aby zapewnić poprawne działanie, analizować ruch oraz dostarczać dopasowane treści marketingowe. Możesz zaakceptować wszystkie lub dostosować ustawienia.
-      </p>
-      <p class="cookie-banner__text cookie-banner__text--small">
-        Szczegóły w <a href="https://gamebook.pl/polityka-prywatnosci/" target="_blank" rel="noopener">polityce prywatności</a>.
-      </p>
-
-      <div class="cookie-banner__buttons" id="cookieDefault">
-        <button class="cookie-banner__btn cookie-banner__btn--primary" id="cookieAccept">Akceptuję wszystkie</button>
-        <button class="cookie-banner__btn cookie-banner__btn--ghost" id="cookieCustomize">Dostosuj</button>
-      </div>
-
-      <div class="cookie-banner__settings" id="cookieSettings" hidden>
-        <div class="cookie-toggle">
-          <div class="cookie-toggle__info">
-            <span class="cookie-toggle__name">Niezbędne</span>
-            <p class="cookie-toggle__desc">Wymagane do podstawowego działania strony. Nie można ich wyłączyć.</p>
-          </div>
-          <div class="cookie-toggle__switch cookie-toggle__switch--locked is-on" aria-label="Zawsze włączone">
-            <span class="cookie-toggle__dot"></span>
-          </div>
-        </div>
-        <div class="cookie-toggle">
-          <div class="cookie-toggle__info">
-            <span class="cookie-toggle__name">Analityczne</span>
-            <p class="cookie-toggle__desc">Pomagają zrozumieć, jak odwiedzający korzystają ze strony (np. Google Analytics).</p>
-          </div>
-          <button class="cookie-toggle__switch is-on" id="toggleAnalytics" aria-pressed="true">
-            <span class="cookie-toggle__dot"></span>
-          </button>
-        </div>
-        <div class="cookie-toggle">
-          <div class="cookie-toggle__info">
-            <span class="cookie-toggle__name">Marketingowe</span>
-            <p class="cookie-toggle__desc">Pozwalają wyświetlać reklamy dopasowane do Twoich zainteresowań.</p>
-          </div>
-          <button class="cookie-toggle__switch" id="toggleMarketing" aria-pressed="false">
-            <span class="cookie-toggle__dot"></span>
-          </button>
-        </div>
-        <div class="cookie-banner__buttons">
-          <button class="cookie-banner__btn cookie-banner__btn--primary" id="cookieSave">Zapisz wybór</button>
-          <button class="cookie-banner__btn cookie-banner__btn--text" id="cookieBack">← Wróć</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
